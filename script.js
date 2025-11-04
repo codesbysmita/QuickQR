@@ -4,6 +4,8 @@ const generateBtn = document.getElementById("generate-btn");
 const downloadBtn = document.getElementById("download-btn");
 const qrColor = document.getElementById("qr-color");
 const themeToggle = document.getElementById("theme-toggle");
+const lastQRBtn = document.getElementById("lastqr-btn");
+const newQRBtn = document.getElementById("newqr-btn");
 let qr;
 
 /* ---------- QR Generation ---------- */
@@ -40,17 +42,41 @@ downloadBtn.addEventListener("click", () => {
   }
 });
 
-/* ---------- Auto Load Last QR ---------- */
+/* ---------- Load Last QR ---------- */
+lastQRBtn.addEventListener("click", () => {
+  const lastQR = localStorage.getItem("lastQR");
+  if (lastQR) {
+    qrInput.value = lastQR;
+    generateBtn.click();
+  } else {
+    alert("No saved QR found!");
+  }
+});
+
+/* ---------- New QR ---------- */
+newQRBtn.addEventListener("click", () => {
+  qrInput.value = "";
+  qrContainer.innerHTML = "";
+  downloadBtn.disabled = true;
+});
+
+/* ---------- Theme Toggle ---------- */
+themeToggle.addEventListener("change", () => {
+  document.body.classList.toggle("dark", themeToggle.checked);
+  localStorage.setItem("theme", themeToggle.checked ? "dark" : "light");
+});
+
+/* ---------- Load Saved Theme ---------- */
 window.addEventListener("load", () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+    themeToggle.checked = true;
+  }
+
   const lastQR = localStorage.getItem("lastQR");
   if (lastQR) {
     qrInput.value = lastQR;
     generateBtn.click();
   }
-});
-
-/* ---------- Theme Toggle ---------- */
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 });
