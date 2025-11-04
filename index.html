@@ -5,24 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QuickQR</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <button class="toggle-mode" id="toggleMode">🌙 Dark</button>
-  <h1>QuickQR</h1>
+  <header>
+    <h1 class="logo">QuickQR</h1>
+    <div class="header-buttons">
+      <button id="lastqr-btn" title="Load Last QR">🗂️</button>
+      <button id="newqr-btn" title="New QR">➕</button>
 
-  <div class="container">
-    <input id="textInput" type="text" placeholder="Enter text or link here..." />
-    <label for="colorPicker">Choose QR color:</label>
-    <input type="color" id="colorPicker" value="#000000" />
-    <button id="generateBtn">Generate QR</button>
-
-    <div class="qr-container">
-      <div id="qrCode"></div>
-      <button id="downloadBtn">Download QR</button>
+      <div class="toggle-wrapper">
+        <input type="checkbox" id="theme-toggle" />
+        <label for="theme-toggle" class="toggle">
+          <span class="sun">🌞</span>
+          <span class="moon">🌙</span>
+        </label>
+      </div>
     </div>
-  </div>
+  </header>
 
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <main>
+    <section class="card">
+      <h2>Create Your QR Code</h2>
+      <input type="text" id="qr-input" placeholder="Enter text or URL" />
+      <div class="color-picker">
+        <label for="qr-color">QR Color:</label>
+        <input type="color" id="qr-color" value="#000000" />
+      </div>
+      <button id="generate-btn">Generate QR</button>
+      <div class="qr-container" id="qr-container"></div>
+      <button id="download-btn" disabled>Download QR</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 QuickQR · All rights reserved</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
