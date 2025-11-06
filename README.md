@@ -28,7 +28,7 @@ qrcode.js library
 1. Enter the text or link you want to convert.
 2. (Optional) Pick a custom color.
 3. Click Generate QR.
-4. Download or save it — that’s it!
+4. Download or save it - that’s it!
  
 🧠 Future Ideas
 Add logo/image inside QR
