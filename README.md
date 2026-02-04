@@ -1,5 +1,6 @@
 # QuickQR
-QuickQR is a modern, minimal, and responsive QR Code Generator Web App built using HTML, CSS, and JavaScript.
+QuickQR is a modern, minimal, and responsive QR Code Generator Web App.
+It is built using HTML, CSS, and JavaScript.
 It lets you instantly create and download QR codes with customizable colors and smooth dark/light themes.
 
 [![Visitors](https://hits.sh/github.com/codesbysmita/QuickQR.svg?style=for-the-badge&label=VISITORS&color=6C63FF)](https://github.com/codesbysmita/QuickQR)
